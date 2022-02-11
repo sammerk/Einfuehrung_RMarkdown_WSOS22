@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Workshop:</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Samuel Merk" />
+    <meta name="date" content="2022-02-11" />
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+    <script src="libs/typed-2.0.11/typed.min.js"></script>
+    <script src="libs/typed-binding-0.0.3/typed.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center,  middle, hide_logo
+
+
+&lt;head&gt;
+&lt;script src="https://kit.fontawesome.com/994a28441d.js" crossorigin="anonymous"&gt;&lt;/script&gt;
+&lt;/head&gt;
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 80px;
+height: 128px;
+z-index: 0;
+background-image: url(https://apps.samuel-merk.de/data/PHK_2018_Logo_V1_FARBE_NUR_PH.svg);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+.phg[
+# Workshop:]
+
+&lt;img src="img/just_a_scratch.jpg" width="40%" /&gt;
+
+.phg[### Reproduzierbare Analysen mit RMarkdown]
+
+---  
+.em14[.phg[Samuel Merk | PH Karlsruhe]]
+
+<span id="htmlwidget-229d08a8d19814f05e54" class="typed html-widget"></span>
+<script type="application/json" data-for="htmlwidget-229d08a8d19814f05e54">{"x":{"strings":["Hallo und 💚-lich Willkommen!","Der Workshop soll eine Hands-On Einführung in RMarkdown sein.","Wichtig wäre dazu, dass ihr R und RStudio installiert habt sowie die R-Pakete {rmarkdown} und {tinytex}"],"contentType":"html","typeSpeed":80,"backSpeed":20,"backDelay":3000,"loop":true},"evals":[],"jsHooks":[]}</script> 
+
+
+---
+# Mein Plan bis 16:00
+.large[
+* Was ist Reproduzierbarkeit?
+* Meta-Scientifische Befunde zur Reproduzierbarkeit
+* RMarkdown
+    * Founding principles
+    * Worked out example
+    * Example to be worked out
+    * Sophistications on demand]
+
+---
+## Das (theoretische) Reproduzierbarkeitsspektrum
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="Img/peng_spectrum.png" alt="Das Reproduzierbarkeitsspektrum. Abbildung aus (Peng, 2011)" width="100%" /&gt;
+&lt;p class="caption"&gt;Das Reproduzierbarkeitsspektrum. Abbildung aus (Peng, 2011)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Die (reale) Verteilung auf diesem Spektrum I
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="Img/screenshot_hardwicke.jpg" alt="Aus Hardwicke et al. (2018)" width="50%" /&gt;
+&lt;p class="caption"&gt;Aus Hardwicke et al. (2018)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## Die (reale) Verteilung auf diesem Spektrum II
+* Ergebnisse aus Stockemer et al. (2018):
+    * Drei politikwiss. Journals (71 Artikel)
+        * 32 exakt replizierbare Analysen
+        * 19 »minor errors«
+        * 3 »significantly different«
+        * 16 »replication was not possible« 
+* Ergebnisse aus Stodden et al., (2018):
+    * Zwei Jahrgänge _Science_ (204 Artikel)
+        * In 13% Informationen zum Bezug von Daten oder Code
+        * In 44% Artefakte beziehbar
+        * In 26% Reproduzierbarkeit 
+
+---   
+# R-spezifische Werkzeuge        
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="Img/huerde_vs_rep.png" alt="Einstiegshürde vs. Reproduzierbarkeit" width="80%" /&gt;
+&lt;p class="caption"&gt;Einstiegshürde vs. Reproduzierbarkeit&lt;/p&gt;
+&lt;/div&gt;
+
+---
+class: inverse
+&lt;div class="figure" style="text-align: center"&gt;
+&lt;img src="img/rmarkdown_wizards.png" alt="The founding principle of RMarkdown (by @allison_horst)" width="85%" /&gt;
+&lt;p class="caption"&gt;The founding principle of RMarkdown (by @allison_horst)&lt;/p&gt;
+&lt;/div&gt;
+
+---
+## How it works
+&lt;img src="img/rmd_outputs.png" width="90%" style="display: block; margin: auto 0 auto auto;" /&gt;
+
+
+---
+# Entrance to the rabbit whole 
+* RStudio Cheatsheets
+    * RStudio `\(\Rightarrow\)` Help `\(\Rightarrow\)` Markdown Quick Reference
+    * [RMarkdown](https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf)
+    * [RStudio](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf)
+* [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) (Xie et al., 2018)    
+
+
+---
+## Literatur
+Hardwicke, T. E., Mathur, M. B., MacDonald, K., Nilsonne, G., Banks, G. C., Kidwell, M. C., Hofelich Mohr, A., Clayton, E., Yoon, E. J., Henry Tessler, M., Lenne, R. L., Altman, S., Long, B., &amp; Frank, M. C. (2018). Data availability, reusability, and analytic reproducibility: Evaluating the impact of a mandatory open data policy at the journal Cognition. Royal Society Open Science, 5(8), 180448. https://doi.org/10.1098/rsos.180448  
+Peng, R. D. (2011). Reproducible research in computing science. Science, 334(6060), 1226–1227. https://doi.org/10.1126/science.1213847.Reproducible  
+Stockemer, D., Koehler, S., &amp; Lentz, T. (2018). Data access, transparency, and replication: New insights from the political behavior literature. PS: Political Science &amp; Politics, 51(4), 799–803. https://doi.org/10.1017/S1049096518000926  
+Stodden, V., Seiler, J., &amp; Ma, Z. (2018). An empirical analysis of journal policy effectiveness for computational reproducibility. Proceedings of the National Academy of Sciences, 115(11), 2584–2589. https://doi.org/10.1073/pnas.1708290115  
+Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). R Markdown: The definitive guide. CRC Press.
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9",
+"navigation": {
+"scroll": false,
+"click": false,
+"touch": true
+}
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
