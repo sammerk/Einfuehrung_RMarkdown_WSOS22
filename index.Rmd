@@ -93,14 +93,17 @@ use_logo(
   width = "80px",
   position = xaringanExtra::css_position(top = "1em", right = "1em")
 )
+
+use_editable() 
 ```
 
 
+
 .phg[
-# Workshop:]
+# Workshop]
 
 ```{r echo=FALSE, out.width="40%"}
-knitr::include_graphics("img/just_a_scratch.jpg")
+knitr::include_graphics("img/reproducibility_court.png")
 ```
 
 .phg[### Reproduzierbare Analysen mit RMarkdown]
@@ -108,7 +111,9 @@ knitr::include_graphics("img/just_a_scratch.jpg")
 ---  
 .em14[.phg[Samuel Merk | PH Karlsruhe]]
 
-`r typedjs::typed(c("Hallo und 💚-lich Willkommen!", "Der Workshop soll eine Hands-On Einführung in RMarkdown sein.", "Wichtig wäre dazu, dass ihr R und RStudio installiert habt sowie die R-Pakete {rmarkdown} und {tinytex}"), typeSpeed = 80, backSpeed = 20, backDelay = 3000, loop = T, contentType = "html")` 
+`r typedjs::typed(c("Hallo und 💚-lich Willkommen!", "Der Workshop soll eine Hands-On Einführung in RMarkdown sein.", "Wichtig wäre dazu, dass ihr R und RStudio installiert habt sowie die R-Pakete {rmarkdown} und {tinytex}", "Diese Folien findet ihr unter https://bit.ly/merk027"), typeSpeed = 80, backSpeed = 20, backDelay = 3000, loop = T, contentType = "html")` 
+
+
 
 
 ---
@@ -148,11 +153,22 @@ knitr::include_graphics("Img/screenshot_hardwicke.jpg")
         * In 44% Artefakte beziehbar
         * In 26% Reproduzierbarkeit 
 
----   
+---
 # R-spezifische Werkzeuge        
 ```{r, fig.cap = "Einstiegshürde vs. Reproduzierbarkeit", out.width = "80%", fig.align='center', echo=FALSE}
-knitr::include_graphics("Img/huerde_vs_rep.png")
+knitr::include_graphics("img/huerde_vs_rep.png")
 ```
+
+---
+# Reproducible Reporting with JASP        
+```{r, fig.cap = "siehe jasp-stats.org", out.width = "90%", fig.align='center', echo=FALSE}
+knitr::include_graphics("img/rep_rep_jasp.png")
+```
+
+
+---
+class: middle center hide_logo
+# Founding principles
 
 ---
 class: inverse
@@ -166,7 +182,6 @@ knitr::include_graphics("img/rmarkdown_wizards.png")
 knitr::include_graphics("img/rmd_outputs.png")
 ```
 
-
 ---
 # Entrance to the rabbit whole 
 * RStudio Cheatsheets
@@ -175,6 +190,40 @@ knitr::include_graphics("img/rmd_outputs.png")
     * [RStudio](https://github.com/rstudio/cheatsheets/blob/main/rstudio-ide.pdf)
 * [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) (Xie et al., 2018)    
 
+---
+class: middle center
+# Worked out example
+RStudio --> New Project --> Version Control --> Git --> URL: https://github.com/sammerk/RMD_WS_WSOS22_Worked_out_example.git
+
+---
+class: middle center
+# Example to be worked out
+RStudio --> New Project --> Version Control --> Git --> URL: https://github.com/sammerk/RMD_WS_WSOS22_Example_to_be_worked_out
+
+---
+# Sophistications on demand
+.pull-left[
+### For Starters ...
+.can-edit[
+* pdf vs. html vs. word
+* .Rmd-templates
+    * `{rmdformats}`
+    * `{tint}`
+    * `{prereg}`
+* sharing/publishing
+* ...
+]]
+
+.pull-left[
+### ...and Ninjas/Kunoichis
+.can-edit[
+* Embedding
+    * pdf
+    * html
+    * arbitrary files `{xfun}`
+* Weitere engines (MPlus, TikZ, Python, ...)
+* ...
+]]
 
 ---
 ## Literatur
